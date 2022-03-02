@@ -9,7 +9,9 @@ public final class Logic {
     private int index = 0;
 
     public void add(Figure figure) {
-        figures[index++] = figure;
+        if (index < figures.length - 1) {
+            figures[index++] = figure;
+        }
     }
 
     public void move(Cell source, Cell dest)
@@ -21,6 +23,13 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (int i = 0; i < figures.length; i++) {
+            for (int j = 0; j < steps.length; j++) {
+                if (figures[i].position().equals(steps[j])) {
+                    throw new OccupiedCellException();
+                }
+            }
+        }
         return true;
     }
 
