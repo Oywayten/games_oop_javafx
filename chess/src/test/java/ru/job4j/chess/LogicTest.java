@@ -41,7 +41,7 @@ public class LogicTest {
     }
 
     @Test
-    public void ImpossibleMoveException()
+    public void whenMoveImpossibleMoveException()
             throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {
         Logic logic = new Logic();
         Figure[] figures = new Figure[5];
@@ -57,13 +57,14 @@ public class LogicTest {
             logic.move(Cell.A1, Cell.B1);
         } catch (ImpossibleMoveException e) {
             Assert.assertEquals(
-                    "ru.job4j.chess.ImpossibleMoveException: Could not way by diagonal from A1 to B1",
+                    "ru.job4j.chess.ImpossibleMoveException: " +
+                            "Could not way by diagonal from A1 to B1",
                     e.toString());
         }
     }
 
     @Test
-    public void OccupiedCellException()
+    public void whenMoveOccupiedCellException()
             throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {
         Logic logic = new Logic();
         Figure[] figures = new Figure[5];
