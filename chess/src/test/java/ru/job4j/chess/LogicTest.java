@@ -57,8 +57,8 @@ public class LogicTest {
             logic.move(Cell.A1, Cell.B1);
         } catch (ImpossibleMoveException e) {
             Assert.assertEquals(
-                    "ru.job4j.chess.ImpossibleMoveException: " +
-                            "Could not way by diagonal from A1 to B1",
+                    "ru.job4j.chess.ImpossibleMoveException: "
+                            + "Could not way by diagonal from A1 to B1",
                     e.toString());
         }
     }
