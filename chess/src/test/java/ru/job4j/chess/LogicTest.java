@@ -6,7 +6,6 @@ import ru.job4j.chess.firuges.Figure;
 import ru.job4j.chess.firuges.black.BishopBlack;
 
 public class LogicTest {
-
     @Test(expected = FigureNotFoundException.class)
     public void whenMoveFigureNotFoundException()
             throws FigureNotFoundException, ImpossibleMoveException, OccupiedCellException {
@@ -17,10 +16,12 @@ public class LogicTest {
         figures[2] = new BishopBlack(Cell.A3);
         figures[3] = new BishopBlack(Cell.A4);
         figures[4] = new BishopBlack(Cell.A5);
-        for (Figure figure : figures) {
-            logic.add(figure);
-        }
-            logic.move(Cell.A6, Cell.A7);
+        logic.add(figures[0]);
+        logic.add(figures[1]);
+        logic.add(figures[2]);
+        logic.add(figures[3]);
+        logic.add(figures[4]);
+        logic.move(Cell.A6, Cell.A7);
     }
 
     @Test(expected = ImpossibleMoveException.class)
@@ -33,10 +34,12 @@ public class LogicTest {
         figures[2] = new BishopBlack(Cell.A3);
         figures[3] = new BishopBlack(Cell.A4);
         figures[4] = new BishopBlack(Cell.A5);
-        for (Figure figure : figures) {
-            logic.add(figure);
-        }
-            logic.move(Cell.A1, Cell.B1);
+        logic.add(figures[0]);
+        logic.add(figures[1]);
+        logic.add(figures[2]);
+        logic.add(figures[3]);
+        logic.add(figures[4]);
+        logic.move(Cell.A1, Cell.B1);
     }
 
     @Test(expected = OccupiedCellException.class)
@@ -49,9 +52,11 @@ public class LogicTest {
         figures[2] = new BishopBlack(Cell.A3);
         figures[3] = new BishopBlack(Cell.A4);
         figures[4] = new BishopBlack(Cell.C3);
-        for (Figure figure : figures) {
-            logic.add(figure);
-        }
-            logic.move(Cell.A1, Cell.C3);
+        logic.add(figures[0]);
+        logic.add(figures[1]);
+        logic.add(figures[2]);
+        logic.add(figures[3]);
+        logic.add(figures[4]);
+        logic.move(Cell.A1, Cell.C3);
     }
 }
